@@ -30,7 +30,7 @@ namespace ResourceServer
             services.AddAuthentication("Bearer")
                 .AddIdentityServerAuthentication("Bearer", options =>
                 {
-                    options.ApiName = "api1";
+                    options.ApiName = "resourceApi";
                     options.Authority = "https://localhost:5000";
                 });
 
@@ -39,11 +39,23 @@ namespace ResourceServer
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ResourceServer", Version = "v1" });
             });
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("default", policy =>
+                {
+                    policy.WithOrigins(Configuration["ClientUrl"])
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseCors("default");
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
