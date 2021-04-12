@@ -68,7 +68,7 @@ namespace IdentityProvider
                         $"{spaClientUrl}/unauthorized",
                         $"{spaClientUrl}",
                         "https://localhost:4200/unauthorized",
-                        "https://localhost:4200"
+                        "https://localhost:4200/"
                     },
                     AllowedCorsOrigins = new List<string>
                     {
