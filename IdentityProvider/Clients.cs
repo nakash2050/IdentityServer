@@ -47,7 +47,7 @@ namespace IdentityProvider
                     ClientName = "SPA Code Client",
                     AccessTokenType = AccessTokenType.Jwt,
                     // RequireConsent = false,
-                    AccessTokenLifetime = 330,// 330 seconds, default 60 minutes
+                    AccessTokenLifetime = 30,// 330 seconds, default 60 minutes
                     IdentityTokenLifetime = 30,
 
                     RequireClientSecret = false,
@@ -60,7 +60,8 @@ namespace IdentityProvider
                         $"{spaClientUrl}/callback",
                         $"{spaClientUrl}/silent-renew.html",
                         "https://localhost:4200",
-                        "https://localhost:4200/silent-renew.html"
+                        "https://localhost:4200/callback",
+                        "https://localhost:4200/assets/silent-renew.html"
                     },
                     PostLogoutRedirectUris = new List<string>
                     {

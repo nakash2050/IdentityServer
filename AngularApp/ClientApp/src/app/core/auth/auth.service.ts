@@ -38,7 +38,7 @@ export class AuthService implements OnDestroy {
             forbidden_route: '/forbidden',
             unauthorized_route: '/unauthorized',
             silent_renew: true,
-            silent_renew_url: this.originUrl + '/silent-renew.html',
+            silent_renew_url: this.originUrl + 'assets/silent-renew.html',
             history_cleanup_off: true,
             auto_userinfo: true,
             log_console_warning_active: true,
@@ -94,7 +94,6 @@ export class AuthService implements OnDestroy {
     }
 
     private doCallbackLogicIfRequired() {
-
         this.oidcSecurityService.authorizedCallbackWithCode(window.location.toString());
     }
 

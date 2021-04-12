@@ -8,23 +8,23 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 </head>
 <body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/oidc-client/1.11.5/oidc-client.min.js" integrity="sha512-pGtU1n/6GJ8fu6bjYVGIOT9Dphaw5IWPwVlqkpvVgqBxFkvdNbytUh0H8AP15NYF777P4D3XEeA/uDWFCpSQ1g==" crossorigin="anonymous"></script>
+    <!-- <script src="oidc-client.min.js"></script>
     <script>
       new Oidc.UserManager().signinSilentCallback()
         .catch((err) => {
           console.log(err);
         });
-    </script>
-    <!-- <script>
+    </script> -->
+    <script>
         window.onload = function () {
-            debugger;
+            // debugger;
             /* The parent window hosts the Angular application */
             var parent = window.parent;
             /* Send the id_token information to the oidc message handler */
             var event = new CustomEvent('oidc-silent-renew-message', { detail: window.location });
             parent.dispatchEvent(event);
         };
-    </script> -->
+    </script>
     <!-- <h1>HELLO HI</h1> -->
 </body>
 </html>

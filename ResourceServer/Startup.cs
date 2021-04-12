@@ -32,6 +32,7 @@ namespace ResourceServer
                 {
                     options.ApiName = "resourceApi";
                     options.Authority = "https://localhost:5000";
+                    options.JwtValidationClockSkew = TimeSpan.Zero;
                 });
 
             services.AddControllers();
@@ -44,7 +45,7 @@ namespace ResourceServer
             {
                 options.AddPolicy("default", policy =>
                 {
-                    policy.WithOrigins(Configuration["ClientUrl"])
+                    policy.WithOrigins(Configuration["ClientUrl"], "https://localhost:4200")
                         .AllowAnyHeader()
                         .AllowAnyMethod();
                 });
